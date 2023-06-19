@@ -1,0 +1,23 @@
+@import "compass/utilities/sprites.scss";
+//compass提供但是沒有retina功能
+//@import 'compass-retina-sprites.scss';
+
+$icon-sprite-dimensions: ture; 
+$icon-spacing: 5px; 
+$icon-sprite-layout: horizontal; 
+@import "icon/*.png"; 
+@include all-icon-sprites; 
+
+
+//匯入2x size的資料匣
+//$icon2x-sprite-dimensions: true;
+//$icon2x-spacing: 5px;
+//$icon2x-sprite-layout: horizontal; 
+//@import "icon2x/*.png";
+//@include all-icon2x-sprites;
+//
+////製作成retina款式
+////retina兩邊的圖片數量要一樣，否則會出錯
+//@include all-retina-sprites($icon-sprites, $icon2x-sprites);
+
+

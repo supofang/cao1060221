@@ -1,0 +1,130 @@
+/*------------------------------------*\
+animate動畫
+\*------------------------------------*/
+
+// Always required
+@import
+  "animate/_properties";
+
+// Import the animations
+@import
+  "animate/_attention-seekers/_flash",
+  "animate/_attention-seekers/_bounce",
+  "animate/_fading-entrances/_fadeInUp"
+  //  "animate/_attention-seekers/attention-seekers.scss",
+  //  "animate/_bouncing-entrances/bouncing-entrances.scss"
+  //  "animate/_bouncing-exits/bouncing-exits.scss",
+  //  "animate/_fading-entrances/fading-entrances.scss",
+  //  "animate/_fading-exits/fading-exits.scss",
+  //  "animate/_flippers/flippers.scss"
+  //  "animate/_lightspeed/lightspeed.scss",
+  //  "animate/_rotating-entrances/rotating-entrances.scss",
+  //  "animate/_rotating-exits/rotating-exits.scss",
+  //  "animate/_sliding-entrances/sliding-entrances.scss",
+  //  "animate/_sliding-exits/sliding-exits.scss",
+  //  "animate/_specials/specials.scss",
+  //  "animate/_zooming-entrances/zooming-entrances.scss",
+  //  "animate/_zooming-exits/zooming-exits.scss"
+  ;
+
+.fadeInUp {
+  @include fadeInUp(
+    //    $duration: 1s,
+    //    $count: infinite,
+    $delay: .2s,
+    $function: ease, 
+    $fill: both
+    );
+}
+
+
+.speed1 {
+//  animation-duration: 3s;
+  animation-delay: .5s;
+}
+.speed2{
+//  animation-duration: 6s;
+  animation-delay: 1s;
+}
+.speed3 {
+//  animation-duration: 3s;
+  animation-delay: 1.5s;
+}
+
+.flash {
+  @include flash(
+    $duration: 5s,
+    $count: infinite,
+    $delay: 0s,
+    $function: ease, 
+    $fill: both
+    );
+}
+.flash2 {
+  @include flash(
+    $duration: 5s,
+    $count: infinite,
+    $delay: 0s,
+    $function: ease, 
+    $fill: both
+    );
+}
+.bounce {
+  @include bounce(
+    $duration: 1s,
+    $count: infinite,
+    $delay: 0s,
+    $function: ease, 
+    $fill: both
+    );
+}
+//.flipInY {
+//  @include flipInY(
+//    $duration: 1s,
+//    $count: 1,
+//    $delay: 0s,
+//    $function: ease, 
+//    $fill: both
+//    );
+//}
+//.flipOutY {
+//  @include flipOutY (
+//    $duration: 1s,
+//    $count: 1,
+//    $delay: 0s,
+//    $function: ease, 
+//    $fill: both
+//    );
+//}
+.upDown1 {
+  animation-name: upDown1;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+}
+@keyframes upDown1 {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  40% {
+    transform: translateX(-10px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+.upDown2 {
+  animation-name: upDown2;
+  animation-duration: .5s;
+  animation-iteration-count: infinite;
+}
+@keyframes upDown2 {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+  40% {
+    transform: translateX(10px) translateY(-5px);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}

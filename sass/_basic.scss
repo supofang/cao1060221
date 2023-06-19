@@ -1,0 +1,35 @@
+/*------------------------------------*\
+基本設定
+\*------------------------------------*/
+
+
+* {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  font-family: "微軟正黑體", "Microsoft JhengHei", "新細明體", "PMingLiU", AppleGothic, Dotum, Lucida Grande, Verdana Sans-serif;
+  font-size: 1em;
+  line-height: 1.9em;
+  color: $color-text;
+  background-color: $color-bg;
+}
+body {
+  
+}
+a {
+  outline: none; // for Firefox Google Chrome
+  behavior: expression(this.onFocus=this.blur()); //for IE 
+  text-decoration: none;
+  color: darken($color-text,40%);
+  &:hover {
+    color: $color-text;
+  }
+}
+input {
+  outline: none;
+  border: none;
+}
+img {
+  display: block;
+}

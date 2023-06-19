@@ -1,0 +1,624 @@
+/*------------------------------------*\
+全部頁面共用layout
+\*------------------------------------*/
+
+.wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/**
+*header區塊內容
+**/
+header {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: url(../images/bg-1.jpg) center no-repeat;
+  @include background-size(cover);
+  overflow: hidden;
+}
+.snow {
+  position: absolute;
+  left: 0;
+  top: -5%;
+}
+.color {
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.logo {
+  position: absolute;
+  @include hide-text; 
+  margin-left: 50%;
+  left: -325px;
+  top: 40%;
+  width: 650px;
+  height: 25%;
+  max-height: 289px;
+  background: url(../images/logo.png) center top no-repeat;
+  @include background-size(auto 100%);
+  z-index: 100;
+  &:hover {
+    background-image: url(../images/logo_hover.png);
+  }
+  @include breakpoint(mobile) {
+    height: 30%;
+  }
+  @include breakpoint(pad) {
+    height: 35%;
+  }
+}
+.fire {
+  position: absolute;
+  margin-left: 50%;
+  left: -530px;
+  top: 0;
+  background: url(../images/caocao-fire.png) center center no-repeat;
+  @include background-size(auto 100%);
+  height: 80%;
+  max-height: 805px;
+  width: 1023px;
+}
+.cao {
+  position: absolute;
+  margin-left: 50%;
+  left: -305px;
+  top: 0;
+  background: url(../images/caocao.png) center center no-repeat;
+  @include background-size(auto 100%);
+  height: 80%;
+  max-height: 777px;
+  width: 610px;
+}
+.cao-eye {
+  position: absolute;
+  margin-left: 50%;
+  left: -220px;
+  top: 20%;
+  background: url(../images/caocao-eye.png) center center no-repeat;
+  @include background-size(auto 100%);
+  height: 28%;
+  max-height: 210px;
+  width: 434px;
+}
+.p-left {
+  display: none;
+  @include breakpoint(pad) {
+    display: block;
+    position: absolute;
+    margin-left: 50%;
+    left: -700px;
+    top: 20%;
+    background: url(../images/p-left.png) center center no-repeat;
+    @include background-size(auto 100%);
+    height: 60%;
+    max-height: 566px;
+    width: 422px;
+  }
+}
+.p-right {
+  display: none;
+  @include breakpoint(pad) {
+    display: block;
+    position: absolute;
+    margin-left: 50%;
+    left: 220px;
+    top: 20%;
+    background: url(../images/p-right.png) center center no-repeat;
+    @include background-size(auto 100%);
+    height: 60%;
+    max-height: 579px;
+    width: 500px;
+  }
+}
+/*h1*/.tit {
+  @include hide-text;
+  position: absolute;
+  margin-left: 50%;
+  left: -213px;
+  top: 65%;
+  height: 28%;
+  max-height: 228px;
+  width: 426px;
+  background: url(../images/tit-all-mobile.png) center center no-repeat;
+  @include background-size(auto 100%);
+  div {
+    display: none;
+  }
+  @include breakpoint(mobile) {
+    left: -345px;
+    top: 70%;
+    height: 15%;
+    max-height: 144px;
+    width: 690px;
+    background-image: url(../images/tit-all-pad.png);
+  }
+  @include breakpoint(pad) {
+    top: 62%;
+    left: -575px;
+    height: 40%;
+    max-height: 400px;
+    width: 950px;
+    background: none;
+    div {
+      display: block;
+    }
+  }
+}
+%transition {
+  position: absolute;
+  top: 100px;
+  @include opacity(0);
+  @include transition (all .3s);
+  &.out {
+    @include opacity(1);
+  }
+}
+@for $i from 1 through 10 {
+  .t#{$i} {
+    @extend .icon-t#{$i};
+  @extend %transition;
+}
+}
+
+%transform {
+  @include transform (scale(2) translate(-200px, -50px) rotate(-360deg)) ;
+  &.out {
+    @include transform (scale(1) translate(0) rotate(0));
+  }
+}
+@for $i from 1 through 10 {
+  .t#{$i} {
+    @extend %transform;
+  } 
+}
+.t1 {
+  left: 200px;
+}
+.t2 {
+  left: 257px;
+}
+.t3 {
+  left: 327px;
+}
+.t4 {
+  left: 415px;
+}
+.t5 {
+  left: 505px;
+}
+.t6 {
+  left: 585px;
+}
+.t7 {
+  left: 670px;
+}
+.t8 {
+  left: 755px;
+}
+.t9 {
+  left: 845px;
+}
+
+.t10 {
+  top: 190px;
+  left: 350px;
+}
+
+/**
+*contents區塊內容
+*各單元內容顯示區
+**/
+
+/*參加步驟*/
+.step {
+  background:url(../images/bg-2.jpg) 0 0 no-repeat;
+  background-size: cover;
+  margin-bottom: -2em;
+  overflow: hidden;
+  &.skew {
+    transform: skew(0, -2deg);
+    background-image: url(../images/bg-3.jpg);
+    > .step-group {
+      transform: skew(0, 2deg);
+    }
+  }
+  //  &.skew2 {
+  //    transform: skew(0, 2deg);
+  //  }
+}
+.step-group {
+  margin: $m-center;
+  max-width: $w-s;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+.pic-left {
+  display: none;
+  @include breakpoint(pad) {
+    display: block;
+    background: url(../images/t-p1.png) center no-repeat;
+    //    background-size: cover;
+    position: absolute;
+    bottom: 0;
+    left: -27%;
+    width: 846px;
+    height: 518px;
+    z-index: 0;
+  }
+}
+.pic-right {
+  display: none;
+  @include breakpoint(pad) {
+    display: block;
+    background: url(../images/t-p2.png) center no-repeat;
+    background-size: (100% auto);
+    position: absolute;
+    top: -10%;
+    right: -35%;
+    width: 980px;
+    height: 550px;
+    z-index: 0;
+  }
+}
+.step-text {
+  padding-top: 3em;
+  padding-bottom: 5em;
+  margin-bottom: 1em;
+  z-index: 100;
+  position: relative;
+  h3 {
+    font-family: 'Century Gothic', serif;
+    font-size: 10em;
+    line-height: 1em;
+    text-align: right;
+    &.blue {
+      color: #7595e2;
+    }
+    &.green {
+      color: #88cc44;
+    }
+  }
+  p {
+    text-align: left;
+    margin-top: -5em;
+    text-shadow: 1px 1px 3px #000;
+  }
+  @include breakpoint(pad) {
+    width: 50%;
+    &.right {
+      margin-left: 50%;
+    }
+  }
+}
+.join {
+  margin-top: 2em;
+  padding: 2em;
+  background-color: #88cc44;
+  div {
+    @include inline-block;
+  }
+}
+.fb-like {
+  margin-top: -1em;
+  @include transform(scale(2));
+  //  &:after {
+  //    content: "or";
+  //    margin-left: 1em;
+  //    vertical-align: bottom;
+  //  }
+}
+.line {
+  //  margin-left: 1.5em;
+  &:before {
+    content: "or";
+    font-size: 2em;
+    margin-left: 1em;
+    margin-right: .5em;
+    padding-top: 50em;
+    vertical-align: middle;
+  }
+  .line-link {
+    @include inline-block;
+    width: 80px;
+    height: 40px;
+    background: #fff url(../images/line.png) center no-repeat;
+    background-size: (auto);
+    @include border-radius(5px);
+    @include transition(all,.3s);
+    @include opacity(.7);
+    //    @include background-image(linear-gradient(white, #ccc));
+    &:hover {
+      @include opacity(1);
+    }
+    @include breakpoint(pad) {
+      display: none;
+    }
+
+  }
+  .line-qrCode {
+    display: none;
+    @include breakpoint(pad) {
+      @include inline-block;
+      >img {
+        max-width: 120px;
+        height: auto;
+      }
+      >span {
+        display: block;
+        margin-top: 5px;
+        text-align: center;
+        @include border-radius (5px);
+        background-color: #fff;
+        color: #88cc44;
+        text-shadow: none;
+        font-weight: bold;
+        font-family: 'Century Gothic', serif;
+      }
+    }
+  }
+
+  //  &:after {
+  //    content: "12312";
+  //  }
+
+
+
+}
+.from {
+  margin-top: 2em;
+  background-color: #7595e2;
+  padding: 2em;
+  width: $percent;
+  @include inline-block;
+  input {
+    width: $percent;
+    padding: .5em;
+    font-family: "微軟正黑體";
+  }
+  input[type='button'] {
+    cursor: pointer;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    background-color: transparent;
+    @include border-radius(5px);
+    margin-top: .5em;
+    @include transition(all,.3s);
+    &:hover {
+      background-color: #396ade;
+    }
+  }
+}
+.btn {
+  padding: 80px 10px;
+  text-align: center;
+  a {
+    width: 90%;
+    @include inline-block;
+    padding: 1em;
+    @include border-radius(.5em);
+    color: $color-text;
+    border: 1px solid $color-text;
+    @include transition(all,.3s);
+    &:hover {
+      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.7);
+      color: #1558bd;
+    }
+  }
+  @include breakpoint(mobile) {
+    a {
+      width: 30%;
+      max-width: 300px;
+      margin-left: 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  @include breakpoint(pad) {
+    padding-bottom: 30px;
+  }
+}
+.btn-home {
+  background-color: #86151d;
+  &:hover {
+    background-color: #b11e28;
+  }
+}
+.btn-fb {
+  background-color: #4267b2;
+  &:hover {
+    background-color: #4375d9;
+  }
+}
+.btn-live {
+  background-color: #2e6d07;
+  &:hover {
+    background-color: #4ca317;
+  }
+}
+/*活動說明*/
+.activity {
+  padding: 1em;
+  z-index: 100;
+  position: relative;
+  background-color: #c54201;
+}
+.activity-text {
+  max-width: $w-s;
+  margin: $m-center;
+  padding-bottom: 100px;
+  padding-top: 100px;
+  letter-spacing:3px;
+  //  @include text-shadow(rgba(black, 1) 1px 1px 3px);
+  h3 {
+    text-align: center;
+    >img {
+      @include inline-block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+}
+.num {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  >span {
+    font-family: 'Century Gothic', serif;
+    font-size: 1.7em;
+    padding: .5em;
+    background-color: #ff7901;
+    border: 1px solid #ff3c00;
+  }
+  @include breakpoint(mobile) {
+    margin-top: 4em;
+    margin-bottom:4em;
+    >span {
+      font-size: 3em;
+    }
+  }
+  @include breakpoint(pad) {
+    margin-top: 6em;
+    margin-bottom:6em;
+    >span {
+      font-size: 4.5em;
+    }
+  }
+}
+/*ul*/.gift {
+  text-align: center;
+  li {
+    margin-top: 1em;
+    //    &:first-child {
+    //      text-align: left;
+    //    }
+  }
+  p {
+    @include inline-block;
+    &.img {
+      @include border-radius(5px); 
+      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.75);
+      padding: .5em;
+      width: 34%;
+      >img {
+        max-width: 100%;
+        height: auto;
+        margin: $m-center;
+      }
+    }
+    &.gift-text {
+      text-align: left;
+      width: 64%;
+      //      background-color: #000;
+    }
+  }
+  span.big {
+    color: #ffae00;
+    font-size: 1.5em;
+  }
+  @include breakpoint(pad) {
+    text-align: left;
+    li {
+      @include inline-block;
+      width: 49%;
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}
+
+
+.progress-bg {
+  width: 100%;
+  @include border-radius(25px);
+  border: 6px solid #b60000;
+}
+.progress {
+  background:#1c1c1c; 
+  height:20px; 
+  @include border-radius(25px);
+
+}
+.progress-bar {
+  height:20px; 
+  width: 0%;
+  @include border-radius(25px);
+  background-color: #ff9c00;
+  -webkit-transition: width 4.50s ease !important;
+  -moz-transition: width 4.50s ease !important;
+  -o-transition: width 4.50s ease !important;
+  transition: width 4.50s ease !important;
+}
+
+/**
+*footer區塊內容
+**/
+footer {
+  @include clearfix;
+  color: darken($color-text,20%);
+  //  font-size: .5em;
+  line-height: 1.5em;
+  padding: 10px;
+}
+/*注意事項*/
+.notice {
+  //  font-size: .9em;
+  line-height: 2em;
+  max-width: $w-s;
+  margin: $m-center;
+  padding: 2em .5em;
+  border-bottom: 1px solid darken($color-text,40%);
+  ul {
+    list-style: decimal;
+    padding-left: 1.5em;
+  }
+}
+.copyrigth {
+  font-size: .5em;
+  max-width: $w-s;
+  margin: $m-center;
+  position: relative;
+  @include clearfix;
+}
+.company {
+  text-align: left;
+  overflow: hidden;
+  margin-top: 10px;
+  li {
+    @include inline-block;
+    margin-right: 15px;
+  }
+}
+.grade {
+  line-height: 1.3em;
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  ul {
+    display: none;
+  }
+  @include breakpoint(pad) {
+    top: 10px;
+    ul{
+      display: block;
+      float: left;
+    }
+    .icon-12,.icon-15 {
+      float: right;
+      margin-left: 10px;
+    }
+  }
+}
